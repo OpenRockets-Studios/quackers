@@ -47,47 +47,40 @@ h1 {
     outline: 3px solid var(--accent2);
 }
 
-#keyboard {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-}
-
 .piano {
-    position: relative;
     display: flex;
     padding: 10px;
     background: #fff;
     border-radius: 12px;
-    overflow: hidden;
+}
+
+.key-group {
+    position: relative;
 }
 
 .white {
     width: 50px;
     height: 220px;
     background: white;
-    border: 3px solid black;
+    border: 4px solid black;
     border-radius: 0 0 6px 6px;
+    margin-right: -4px;
     z-index: 1;
-    margin-left: -3px;
     position: relative;
     transition: all 0.1s ease;
 }
 
-.white:first-child {
-    margin-left: 0;
+.key-group:first-child .white {
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
 }
 
-.white:last-of-type {
-    margin-left: 0;
+.key-group:last-child .white {
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
-    z-index: 3;
 }
 
-.white:active, .white.active {
+.white.active {
     transform: translateY(4px);
     background: #aaaaaa;
 }
@@ -96,26 +89,16 @@ h1 {
     position: absolute;
     width: 32px;
     height: 130px;
+    border-radius: 0 0 6px 6px;
     background: black;
     z-index: 2;
-    top: 10px;
+    top: 0;
     transition: all 0.1s ease;
-    left: calc((var(--i) + 1) * 53px + 18px);
-    transform: translateX(-75%);
+    right: -18px;
 }
 
-.black:active, .black.active {
+.black.active {
     background: #666;
-}
-
-.key span {
-    position: absolute;
-    bottom: 10px;
-    width: 100%;
-    text-align: center;
-    font-size: 14px;
-    color: #ff6fa5;
-    font-weight: bold;
 }
 
 .key:hover {
